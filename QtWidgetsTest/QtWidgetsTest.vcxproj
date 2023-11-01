@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+***************************************************************************************************
+ Copyright (C) 2023 The Qt Company Ltd.
+ SPDX-License-Identifier: LicenseRef-Qt-Commercial OR LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only
+***************************************************************************************************
+-->
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D0BCF052-89E7-4DBC-8C21-89C0D9FB417B}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">10.0.22621.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
+    <Import Project="$(QtMsBuild)\qt_defaults.props" />
+  </ImportGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>debug</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
+    <QtInstall>msvc2017_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+    <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <IncludePath>D:\Qt5.12.10\5.12.10\msvc2017_64\include;D:\VTK\VTK-9.3.0-debug\include\vtk-9.3;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\VTK\VTK-9.3.0-debug\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>vtkcgns-9.3d.lib;vtkChartsCore-9.3d.lib;vtkCommonColor-9.3d.lib;vtkCommonComputationalGeometry-9.3d.lib;vtkCommonCore-9.3d.lib;vtkCommonDataModel-9.3d.lib;vtkCommonExecutionModel-9.3d.lib;vtkCommonImplicitArrays-9.3d.lib;vtkCommonMath-9.3d.lib;vtkCommonMisc-9.3d.lib;vtkCommonSystem-9.3d.lib;vtkCommonTransforms-9.3d.lib;vtkDICOMParser-9.3d.lib;vtkDomainsChemistry-9.3d.lib;vtkDomainsChemistryOpenGL2-9.3d.lib;vtkdoubleconversion-9.3d.lib;vtkexodusII-9.3d.lib;vtkexpat-9.3d.lib;vtkFiltersAMR-9.3d.lib;vtkFiltersCellGrid-9.3d.lib;vtkFiltersCore-9.3d.lib;vtkFiltersDSP-9.3d.lib;vtkFiltersExtraction-9.3d.lib;vtkFiltersFlowPaths-9.3d.lib;vtkFiltersGeneral-9.3d.lib;vtkFiltersGeneric-9.3d.lib;vtkFiltersGeometry-9.3d.lib;vtkFiltersGeometryPreview-9.3d.lib;vtkFiltersHybrid-9.3d.lib;vtkFiltersHyperTree-9.3d.lib;vtkFiltersImaging-9.3d.lib;vtkFiltersModeling-9.3d.lib;vtkFiltersParallel-9.3d.lib;vtkFiltersParallelImaging-9.3d.lib;vtkFiltersPoints-9.3d.lib;vtkFiltersProgrammable-9.3d.lib;vtkFiltersReduction-9.3d.lib;vtkFiltersSelection-9.3d.lib;vtkFiltersSMP-9.3d.lib;vtkFiltersSources-9.3d.lib;vtkFiltersStatistics-9.3d.lib;vtkFiltersTensor-9.3d.lib;vtkFiltersTexture-9.3d.lib;vtkFiltersTopology-9.3d.lib;vtkFiltersVerdict-9.3d.lib;vtkfmt-9.3d.lib;vtkfreetype-9.3d.lib;vtkGeovisCore-9.3d.lib;vtkgl2ps-9.3d.lib;vtkglew-9.3d.lib;vtkGUISupportMFC-9.3d.lib;vtkGUISupportQt-9.3d.lib;vtkGUISupportQtQuick-9.3d.lib;vtkGUISupportQtSQL-9.3d.lib;vtkhdf5-9.3d.lib;vtkhdf5_hl-9.3d.lib;vtkImagingColor-9.3d.lib;vtkImagingCore-9.3d.lib;vtkImagingFourier-9.3d.lib;vtkImagingGeneral-9.3d.lib;vtkImagingHybrid-9.3d.lib;vtkImagingMath-9.3d.lib;vtkImagingMorphological-9.3d.lib;vtkImagingSources-9.3d.lib;vtkImagingStatistics-9.3d.lib;vtkImagingStencil-9.3d.lib;vtkInfovisCore-9.3d.lib;vtkInfovisLayout-9.3d.lib;vtkInteractionImage-9.3d.lib;vtkInteractionStyle-9.3d.lib;vtkInteractionWidgets-9.3d.lib;vtkIOAMR-9.3d.lib;vtkIOAsynchronous-9.3d.lib;vtkIOCellGrid-9.3d.lib;vtkIOCesium3DTiles-9.3d.lib;vtkIOCGNSReader-9.3d.lib;vtkIOChemistry-9.3d.lib;vtkIOCityGML-9.3d.lib;vtkIOCONVERGECFD-9.3d.lib;vtkIOCore-9.3d.lib;vtkIOEnSight-9.3d.lib;vtkIOExodus-9.3d.lib;vtkIOExport-9.3d.lib;vtkIOExportGL2PS-9.3d.lib;vtkIOExportPDF-9.3d.lib;vtkIOFLUENTCFF-9.3d.lib;vtkIOGeometry-9.3d.lib;vtkIOHDF-9.3d.lib;vtkIOImage-9.3d.lib;vtkIOImport-9.3d.lib;vtkIOInfovis-9.3d.lib;vtkIOIOSS-9.3d.lib;vtkIOLegacy-9.3d.lib;vtkIOLSDyna-9.3d.lib;vtkIOMINC-9.3d.lib;vtkIOMotionFX-9.3d.lib;vtkIOMovie-9.3d.lib;vtkIONetCDF-9.3d.lib;vtkIOOggTheora-9.3d.lib;vtkIOParallel-9.3d.lib;vtkIOParallelXML-9.3d.lib;vtkIOPLY-9.3d.lib;vtkIOSegY-9.3d.lib;vtkIOSQL-9.3d.lib;vtkioss-9.3d.lib;vtkIOTecplotTable-9.3d.lib;vtkIOVeraOut-9.3d.lib;vtkIOVideo-9.3d.lib;vtkIOXML-9.3d.lib;vtkIOXMLParser-9.3d.lib;vtkjpeg-9.3d.lib;vtkjsoncpp-9.3d.lib;vtkkissfft-9.3d.lib;vtklibharu-9.3d.lib;vtklibproj-9.3d.lib;vtklibxml2-9.3d.lib;vtkloguru-9.3d.lib;vtklz4-9.3d.lib;vtklzma-9.3d.lib;vtkmetaio-9.3d.lib;vtknetcdf-9.3d.lib;vtkogg-9.3d.lib;vtkParallelCore-9.3d.lib;vtkParallelDIY-9.3d.lib;vtkpng-9.3d.lib;vtkpugixml-9.3d.lib;vtkRenderingAnnotation-9.3d.lib;vtkRenderingCellGrid-9.3d.lib;vtkRenderingContext2D-9.3d.lib;vtkRenderingContextOpenGL2-9.3d.lib;vtkRenderingCore-9.3d.lib;vtkRenderingFreeType-9.3d.lib;vtkRenderingGL2PSOpenGL2-9.3d.lib;vtkRenderingHyperTreeGrid-9.3d.lib;vtkRenderingImage-9.3d.lib;vtkRenderingLabel-9.3d.lib;vtkRenderingLICOpenGL2-9.3d.lib;vtkRenderingLOD-9.3d.lib;vtkRenderingOpenGL2-9.3d.lib;vtkRenderingQt-9.3d.lib;vtkRenderingSceneGraph-9.3d.lib;vtkRenderingUI-9.3d.lib;vtkRenderingVolume-9.3d.lib;vtkRenderingVolumeOpenGL2-9.3d.lib;vtkRenderingVtkJS-9.3d.lib;vtksqlite-9.3d.lib;vtksys-9.3d.lib;vtkTestingRendering-9.3d.lib;vtktheora-9.3d.lib;vtktiff-9.3d.lib;vtkverdict-9.3d.lib;vtkViewsContext2D-9.3d.lib;vtkViewsCore-9.3d.lib;vtkViewsInfovis-9.3d.lib;vtkViewsQt-9.3d.lib;vtkWrappingTools-9.3d.lib;vtkzlib-9.3d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
+    <ClCompile>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <Optimization>MaxSpeed</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <QtRcc Include="QtWidgetsTest.qrc" />
+    <QtUic Include="QtWidgetsTest.ui" />
+    <QtMoc Include="QtWidgetsTest.h" />
+    <ClCompile Include="QtWidgetsTest.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="arcStyle.h" />
+    <ClInclude Include="BoxStyle.h" />
+    <ClInclude Include="cellPicker.h" />
+    <ClInclude Include="cubeStyle.h" />
+    <ClInclude Include="distance.h" />
+    <ClInclude Include="lineStyle.h" />
+    <ClInclude Include="MyVtkWidget.h" />
+    <ClInclude Include="operate.h" />
+    <ClInclude Include="PointStyle.h" />
+    <ClInclude Include="propPicker.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
